@@ -1,0 +1,6 @@
+{
+  "string": "Hello World!",
+  "integer": 1984,
+  "array": ["string"],
+  "object": {"boolean": false}
+}
