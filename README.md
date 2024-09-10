@@ -1,5 +1,7 @@
 # `hryzun`
 
+The mono-repository of public Go packages used by Osyah.
+
 ## Packages
 
 - [`hryzun/config`](/config/README.md)
