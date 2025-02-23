@@ -39,7 +39,7 @@ func (r *Ring[T]) Get() []T {
 	result := make([]T, r.count)
 
 	for i := 0; i < r.count; i++ {
-		result[i] = r.buf[((r.write + i) % r.size)]
+		result[i] = r.buf[((r.write + r.size - r.count + i) % r.size)]
 	}
 
 	return result
@@ -55,7 +55,7 @@ func (r *Ring[T]) First() (T, bool) {
 		return zero, false
 	}
 
-	return r.buf[r.write], true
+	return r.buf[((r.write + r.size - r.count) % r.size)], true
 }
 
 func (r *Ring[T]) Last() (T, bool) {
@@ -68,7 +68,7 @@ func (r *Ring[T]) Last() (T, bool) {
 		return zero, false
 	}
 
-	return r.buf[((r.write + r.count - 1) % r.size)], true
+	return r.buf[((r.write + r.size - 1) % r.size)], true
 }
 
 func (r *Ring[T]) Len() int {
