@@ -1,7 +1,7 @@
-// Copyright (c) 2024 Osyah
+// Copyright (c) 2024-2025 Osyah
 // SPDX-License-Identifier: MIT
 
-package status
+package hryzun
 
 import "fmt"
 
@@ -16,7 +16,7 @@ type Status struct {
 	Message string `json:"message"`
 }
 
-func New(code Code, message string) *Status {
+func NewStatus(code Code, message string) *Status {
 	return &Status{Code: code, Message: message}
 }
 

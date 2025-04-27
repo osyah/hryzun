@@ -1,10 +1,9 @@
-# `hryzun`
+# Hryzun
 
-The mono-repository of public Go packages used by Osyah.
+Commonly used Go packages in Osyah projects.
 
-## Packages
+## Install
 
-- [`hryzun/config`](/config/README.md)
-- [`hryzun/container`](/container/README.md)
-- [`hryzun/status`](/status/README.md)
-- `hryzun/buffer`
+```
+go get -u github.com/osyah/hryzun
+```

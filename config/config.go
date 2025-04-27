@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Osyah
+// Copyright (c) 2024-2025 Osyah
 // SPDX-License-Identifier: MIT
 
 package config
@@ -9,11 +9,6 @@ import (
 
 	"github.com/mitchellh/mapstructure"
 )
-
-type Adapter interface {
-	Peek(s string) bool
-	Unmarshal(data []byte, v any) error
-}
 
 func New[T any](filename string, adapters ...Adapter) (*T, error) {
 	data, err := os.ReadFile(filename)
@@ -64,7 +59,7 @@ func Unmarshal(input *UnmarshalInput) (map[string]any, error) {
 	var result map[string]any
 
 	for _, adapter := range input.Adapters {
-		if !adapter.Peek(input.Type) {
+		if !adapter.Key(input.Type) {
 			continue
 		}
 
